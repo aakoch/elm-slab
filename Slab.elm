@@ -1,7 +1,5 @@
 module Slab where
 
-import Graphics.Element exposing (..)
-
 type alias PersonId = Int
 
 type alias Relationship =

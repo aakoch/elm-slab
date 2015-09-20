@@ -1,9 +1,5 @@
-import Color exposing (..)
-import Graphics.Collage exposing (..)
-import Graphics.Element exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (..)
-import Debug exposing (..)
 import Slab
 import String exposing (..)
 import List exposing (..)
