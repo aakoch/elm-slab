@@ -1,7 +1,7 @@
 {
     "version": "0.1.0",
     "summary": "My address book done in Elm",
-    "repository": "https://github.com/aakoch/elm-slab",
+    "repository": "https://github.com/aakoch/elm-slab.git",
     "license": "BSD3",
     "source-directories": [
         "."
