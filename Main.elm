@@ -1,18 +1,19 @@
 import Html exposing (..)
 import Html.Attributes exposing (..)
-import Slab
+import Slab exposing (Person)
 import String exposing (..)
 import List exposing (..)
 import Maybe exposing (..)
+import StartApp.Simple exposing (start)
+import Html.Events exposing (onClick)
 
 main =
-    let
-        root = Slab.init
-        embedInDiv s = div [] [a [href "#"] [Html.text s]]
-        getAgeAsText p = withDefault "unknown" <| Maybe.map toString (.age p)
-        asHtml p = div [] <| List.map Html.text [(.name p), " ", toString (.id p), " ", getAgeAsText p]
-    in
-        -- this works! don't change it!
-        -- div [] (List.map (\s -> Html.div [] [Html.text s]) ["son", "daughter", "wife"])
+  StartApp.Simple.start { model = Slab.init, update = \n -> n, view = view }
 
-        div [] [asHtml root]
+embedInDiv s = div [] [a [href "#"] [Html.text s]]
+getAgeAsText p = withDefault "unknown" <| Maybe.map toString (.age p)
+asHtml p = div [] <| List.map Html.text [(.name p), " ", toString (.id p), " ", getAgeAsText p]
+
+view : Signal.Address a -> Person -> Html
+view address model =
+    div [] [asHtml model]
