@@ -10,16 +10,19 @@ import Html.Events exposing (onClick)
 main =
   StartApp.Simple.start { model = Slab.init, update = \n -> n, view = view }
 
-embedInDiv str = div [] [a [href "#"] [Html.text str]]
-
 getAgeAsText : Person -> String
 getAgeAsText person = withDefault "unknown" <| Maybe.map toString (.age person)
 
 asHtml : Person -> Html
-asHtml p = div [] (createPersonString p)
+--asHtml person = div [] (createPersonString person)
+--asHtml person = div [] ([Html.text (makeString person)])
+--asHtml person = div [] <| [Html.text (makeString person)]
+asHtml person = div [] <| [Html.text <| makeString person]
 
-createPersonString : Person -> List Html
-createPersonString person = List.map Html.text [String.join " " [(.name person), toString (.id person), getAgeAsText person]]
+--createPersonString : Person -> List Html
+--createPersonString person = List.map Html.text [makeString person]
+
+makeString person = String.join " " [(.name person), toString (.id person), getAgeAsText person]
 
 view : Signal.Address a -> Person -> Html
 view address model =
