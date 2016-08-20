@@ -1,4 +1,4 @@
-module Slab where
+module Slab exposing (..)
 
 type alias PersonId = Int
 
